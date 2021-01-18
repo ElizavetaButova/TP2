@@ -1,0 +1,74 @@
+﻿@model Polyclinic_project.Models.Patients
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Patients</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Pat_fnln)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Pat_fnln)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Age)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Age)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Insur_num)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Insur_num)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Passport)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Passport)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Medcard_num }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

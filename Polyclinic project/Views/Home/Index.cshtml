@@ -1,0 +1,178 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+    <div>
+        <h1>Город</h1>
+        <table>
+
+            <tr>
+                <td><p>Код города</p></td>
+                <td><p>Название города</p></td>
+                <td></td>
+            </tr>
+            @foreach (var b in ViewBag.city)
+            {
+                <tr>
+                    <td><p>@b.City_code</p></td>
+                    <td><p>@b.City_name</p></td>
+                    <td><p><a href="/Home/Next/@b.Id">Далее</a></p></td>
+                </tr>
+            }
+        </table>
+
+        <h2>Поликлиника</h2>
+        <table>
+            <tr>
+                <td><p>Код города</p></td>
+                <td><p>Номер поликлиники</p></td>
+                <td><p>Название поликлиники</p></td>
+                <td></td>
+            </tr>
+            @foreach (var b in ViewBag.polyclinic)
+            {
+                <tr>
+                    <td><p>@b.City_code</p></td>
+                    <td><p>@b.Pol_num</p></td>
+                    <td><p>@b.Pol_name</p></td>
+                    <td><p><a href="/Home/Next/@b.Id">Далее</a></p></td>
+
+                </tr>
+            }
+        </table>
+
+        <h3>Отделение</h3>
+        <table>
+            <tr>
+                <td><p>Номер поликлиники</p></td>
+                <td><p>Номер отделения</p></td>
+                <td><p>Название отделения</p></td>
+                <td></td>
+            </tr>
+            @foreach (var b in ViewBag.department)
+            {
+                <tr>
+                    <td><p>@b.Pol_num</p></td>
+                    <td><p>@b.Dep_num</p></td>
+                    <td><p>@b.Dep_name</p></td>
+
+                    <td><p><a href="/Home/Next/@b.Id">Далее</a></p></td>
+                </tr>
+            }
+        </table>
+
+        <h4>Врач</h4>
+        <table>
+            <tr>
+                <td><p>Номер отделения</p></td>
+                <td><p>Id врача</p></td>
+                <td><p>ФИО врача</p></td>
+                <td><p>Должность врача</p></td>
+                <td><p>Номер кабинета врача</p></td>
+                <td></td>
+            </tr>
+            @foreach (var b in ViewBag.doctor)
+            {
+                <tr>
+                    <td><p>@b.Dep_num</p></td>
+                    <td><p>@b.Doc_id</p></td>
+                    <td><p>@b.Doc_fnln</p></td>
+                    <td><p>@b.Doc_spec</p></td>
+                    <td><p>@b.Doc_office</p></td>
+                    <td><p><a href="/Home/Next/@b.Id">Далее</a></p></td>
+                </tr>
+            }
+        </table>
+
+        <h5>Заполнение данных</h5>
+        <table>
+            <tr>
+                <td><p>Номер мед.карты</p></td>
+                <td><p>ФИО</p></td>
+                <td><p>Возраст</p></td>
+                <td><p>Адрес</p></td>
+                <td><p>Номер телефона</p></td>
+                <td><p>СНИЛС</p></td>
+                <td><p>Паспортные данные</p></td>
+                <td></td>
+            </tr>
+            @foreach (var b in ViewBag.Polyclinic)
+            {
+                <tr>
+                    <td><p>@b.Medcard_num</p></td>
+                    <td><p>@b.Pat_fnln</p></td>
+                    <td><p>@b.Age</p></td>
+                    <td><p>@b.Address</p></td>
+                    <td><p>@b.Phone</p></td>
+                    <td><p>@b.Insur_num</p></td>
+                    <td><p>@b.Passport</p></td>
+                    <td><p><a href="/Home/Next/@b.Id">Далее</a></p></td>
+                </tr>
+            }
+        </table>
+
+        <h6>Время приёма</h6>
+        <table>
+            <tr>
+                <td><p>Время приёма</p></td>
+                <td><p>Id врача</p></td>
+                <td></td>
+            </tr>
+            @foreach (var b in ViewBag.Polyclinic)
+            {
+                <tr>
+                    <td><p>@b.App_time</p></td>
+                    <td><p>@b.Doc_id</p></td>
+                    <td><p><a href="/Home/Next/@b.Id">Далее</a></p></td>
+                </tr>
+            }
+        </table>
+
+        <h2>Талон</h2>
+        <table>
+            <tr>
+                <td><p>Номер талона</p></td>
+                <td><p>Id врача</p></td>
+                <td><p>Номер карты</p></td>
+                <td><p>Время приёма</p></td>
+                <td></td>
+            </tr>
+            @foreach (var b in ViewBag.Polyclinic)
+            {
+                <tr>
+                    <td><p>@b.Tick_num</p></td>
+                    <td><p>@b.Doc_id</p></td>
+                    <td><p>@b.Medcard_num</p></td>
+                    <td><p>@b.App_time</p></td>
+                    <td><p><a href="/Home/Next/@b.Id">Далее</a></p></td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    @{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <div>
+        <h3>Форма оформления покупки</h3>
+        <form method="post" action="">
+            <input type="hidden" value="@ViewBag.BookId" name="BookId" />
+            <table>
+                <tr>
+                    <td><p>Введите свое имя </p></td>
+                    <td><input type="text" name="Person" /> </td>
+                </tr>
+                <tr>
+                    <td><p>Введите адрес :</p></td>
+                    <td>
+                        <input type="text" name="Address" />
+                    </td>
+                </tr>
+                <tr><td><input type="submit" value="Отправить" /> </td><td></td></tr>
+            </table>
+        </form>
+    </div>

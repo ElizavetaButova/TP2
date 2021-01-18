@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Polyclinic_project.Models.Doctors>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Department.Dep_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Doc_fnln)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Doc_spec)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Doc_office)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department.Dep_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doc_fnln)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doc_spec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doc_office)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Doc_id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Doc_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Doc_id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

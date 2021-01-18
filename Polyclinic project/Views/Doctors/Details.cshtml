@@ -1,0 +1,58 @@
+﻿@model Polyclinic_project.Models.Doctors
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Doctors</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Department.Dep_name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Department.Dep_name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Doc_fnln)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Doc_fnln)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Doc_spec)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Doc_spec)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Doc_office)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Doc_office)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Doc_id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Polyclinic_project.Models.Tickets>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <a href="@Url.Action("Create")" class="btn btn-primary">Выдать талон</a>
+    <table class="table">
+        <tr>
+            <th>
+                ФИО врача
+            </th>
+            <th>
+                ФИО пациента
+            </th>
+            <th>
+                Время записи
+            </th>
+            <th>
+                Номер карты
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doctor.Doc_fnln)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient.Pat_fnln)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reception.App_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pat_fnln)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Tick_num }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Tick_num }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Tick_num })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
